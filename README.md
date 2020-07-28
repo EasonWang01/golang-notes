@@ -1,3 +1,7 @@
+---
+description: 'https://easonwang.gitbook.io/golang/'
+---
+
 # Introduction
 
 ## 閱讀資源:
