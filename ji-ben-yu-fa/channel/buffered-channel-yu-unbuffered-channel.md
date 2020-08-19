@@ -28,7 +28,7 @@ func main() {
 
 > 會看到出現 fatal error: all goroutines are asleep - deadlock 錯誤
 
-原因是 unBuffered channel 讀跟寫需要在一個 goroutine 才不會被 block，也就是把讀或寫放在一個goroutine環境即可解決這個問題。
+原因是 unBuffered channel 讀跟寫需要在不同 goroutine 才不會被 block，也就是把讀或寫放在一個goroutine環境即可解決這個問題。
 
 所以我們調整程式為以下
 
@@ -96,4 +96,62 @@ func main() {
 	wg.Wait()
 }
 ```
+
+那接著我們在試著把讀跟寫都放到同一個 Goroutine 內
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+func main() {
+	c := make(chan int)
+	var wg sync.WaitGroup
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		c <- 10
+		fmt.Println(<-c)
+	}()
+	wg.Wait()
+}
+```
+
+> 會發現還是出現了 fatal error: all goroutines are asleep - deadlock
+
+原因是 UnBuffered Channel 讀寫必須在不同的 Goroutine環境下
+
+## Buffered Channel
+
+> 在 make 時加入第二個參數即為 Buffered Channel。
+
+所以我們把剛才上面的程式 make 部分加上第二個參數，即可看到能正常執行。
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+func main() {
+	c := make(chan int, 1)
+	var wg sync.WaitGroup
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		c <- 10
+		fmt.Println(<-c)
+	}()
+	wg.Wait()
+}
+```
+
+
+
+
 
