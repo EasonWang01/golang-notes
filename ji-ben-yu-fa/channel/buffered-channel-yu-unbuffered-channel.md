@@ -127,6 +127,8 @@ func main() {
 ## Buffered Channel
 
 > 在 make 時加入第二個參數即為 Buffered Channel。
+>
+> 第二個參數代表 buffered channel 的容量
 
 所以我們把剛才上面的程式 make 部分加上第二個參數，即可看到能正常執行。
 
@@ -151,7 +153,21 @@ func main() {
 }
 ```
 
+這時我們讀寫 channel 可以不用使用 goroutine 也能正常執行
 
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	c := make(chan int, 1)
+	c <- 10
+	fmt.Println(<-c)
+}
+```
 
 
 
