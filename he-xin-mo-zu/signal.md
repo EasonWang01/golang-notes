@@ -25,7 +25,7 @@ func main() {
 }
 ```
 
-可以輸入 `mac signal` 查看可用信號
+可以輸入 `man signal` 查看可用信號
 
 ![](../.gitbook/assets/ying-mu-kuai-zhao-20200819-xia-wu-3.03.27.png)
 
