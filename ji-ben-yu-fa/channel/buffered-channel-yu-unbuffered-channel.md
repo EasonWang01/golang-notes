@@ -1,4 +1,4 @@
-# Buffered channel 與 UnBuffered channel
+# UnBuffered channel 與 Buffered channel
 
 ## UnBuffered channel
 
@@ -70,5 +70,30 @@ func main() {
 
 > 會發現再次出現了 fatal error: all goroutines are asleep，因為 main func 在 goroutines 還沒完成前就 return 了，只有寫入但沒有讀出
 
-但還是有解決方法
+但還是有解決方法：使用 sync.waitGroup 來等待 go routine
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+func main() {
+	c := make(chan int)
+	var wg sync.WaitGroup
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		c <- 10
+	}()
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		fmt.Println(<-c)
+	}()
+	wg.Wait()
+}
+```
 

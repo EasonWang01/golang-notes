@@ -22,7 +22,7 @@
   * [defer](ji-ben-yu-fa/defer.md)
   * [panic, recover](ji-ben-yu-fa/panic-recover.md)
   * [Channel 與Goroutine](ji-ben-yu-fa/channel/README.md)
-    * [Buffered channel 與 UnBuffered channel](ji-ben-yu-fa/channel/buffered-channel-yu-unbuffered-channel.md)
+    * [UnBuffered channel 與 Buffered channel](ji-ben-yu-fa/channel/buffered-channel-yu-unbuffered-channel.md)
   * [Function](ji-ben-yu-fa/function.md)
   * [pointer](ji-ben-yu-fa/pointer.md)
   * [regExp](ji-ben-yu-fa/regexp.md)
