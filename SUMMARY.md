@@ -32,6 +32,7 @@
   * [Array, Slice 陣列](ji-ben-yu-fa/array-zhen-lie.md)
   * [map](ji-ben-yu-fa/map.md)
 * [核心模組](he-xin-mo-zu/README.md)
+  * [File](he-xin-mo-zu/file.md)
   * [Signal](he-xin-mo-zu/signal.md)
   * [BuiltIn](he-xin-mo-zu/builtin.md)
   * [Sync](he-xin-mo-zu/sync.md)
