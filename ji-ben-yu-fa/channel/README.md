@@ -51,6 +51,8 @@ go func() {....}()
 
 以上及為Goroutine一般的樣子，go code 執行時通常為同步的，所以加上 go 等於是 async，讓他變為非同步執行。
 
+如果有多個Goroutine 做相同的事，放在越後面的會先執行完畢
+
 ## Channel
 
 使用 make 創建 channel
