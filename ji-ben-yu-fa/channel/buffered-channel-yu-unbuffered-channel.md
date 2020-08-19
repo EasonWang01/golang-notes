@@ -169,5 +169,38 @@ func main() {
 }
 ```
 
+但因為目前設定的 channel 容量只有 1 所以以下程式寫入兩次才讀出會出現錯誤
 
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	c := make(chan int, 1)
+	c <- 10
+	c <- 20
+	fmt.Println(<-c)
+}
+```
+
+所以等到寫入讀出後，再次進行寫入即可
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	c := make(chan int, 1)
+	c <- 10
+	fmt.Println(<-c)
+	c <- 20
+	fmt.Println(<-c)
+}
+```
 
