@@ -14,6 +14,7 @@ import (
 
 func main() {
 	f, err := os.Create("test.txt")
+	defer f.Close()
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -39,11 +40,21 @@ import (
 
 func main() {
 	f, err := os.OpenFile("test.txt", os.O_APPEND|os.O_WRONLY, 0600)
+	defer f.Close()
 	if err != nil {
 		fmt.Println(err)
 	}
 	f.WriteString("apple")
 }
 
+```
+
+### 寫入 Bytes
+
+> 在 txt 檔案內會顯示對應的 ASCII 字元
+
+```go
+	d2 := []byte{104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 104, 101, 108, 108, 111}
+	f.Write(d2)
 ```
 
