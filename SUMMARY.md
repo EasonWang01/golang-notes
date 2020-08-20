@@ -45,4 +45,6 @@
   * [go-jwt](di-san-fang-mo-zu/go-jwt.md)
 * [測試](ce-shi.md)
 * [原始碼解析](yuan-shi-ma-jie-xi.md)
+* [常見問題](chang-jian-wen-ti/README.md)
+  * [Data races](chang-jian-wen-ti/data-races.md)
 
