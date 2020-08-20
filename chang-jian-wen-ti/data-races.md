@@ -131,5 +131,7 @@ func main() {
 
 ```
 
-
+> Javascript 不會有 race condition 的原因是其為 single thread ，並且 worker thread 也不能直接存取到相同變數，都要透過 postMessage 溝通。
+>
+> [https://stackoverflow.com/questions/21467325/javascript-thread-handling-and-race-conditions](https://stackoverflow.com/questions/21467325/javascript-thread-handling-and-race-conditions)
 
