@@ -51,3 +51,83 @@ func main() {
 
 ![](../.gitbook/assets/ying-mu-kuai-zhao-20200820-xia-wu-2.22.12.png)
 
+## 解決方法有三個
+
+1.runtime.GOMAXPROCS\(1\) 
+
+> 設定 CPU 只用一顆執行程式
+
+2.使用 `sync lock 與 unlock`
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+var total int
+var wg sync.WaitGroup
+var mu sync.Mutex
+
+// Inc increments the counter for the given key.
+func inc(num int) {
+	mu.Lock()
+	defer mu.Unlock()
+	total += num
+	wg.Done()
+}
+
+// Value returns the current value of the counter for the given key.
+func getValue() int {
+	return total
+}
+
+func main() {
+	for i := 1; i <= 1000; i++ {
+		wg.Add(1)
+		go inc(i)
+	}
+	wg.Wait()
+	fmt.Println(getValue())
+}
+```
+
+3.使用 `sync/atomic`
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+	"sync/atomic"
+)
+
+var total uint64
+var wg sync.WaitGroup
+
+func inc(num uint64) {
+	atomic.AddUint64(&total, num)
+	wg.Done()
+}
+
+// Value returns the current value of the counter for the given key.
+func getValue() uint64 {
+	return atomic.LoadUint64(&total)
+}
+
+func main() {
+	for i := uint64(1); i <= 1000; i++ {
+		wg.Add(1)
+		go inc(i)
+	}
+	wg.Wait()
+	fmt.Println(getValue())
+}
+
+```
+
+
+
