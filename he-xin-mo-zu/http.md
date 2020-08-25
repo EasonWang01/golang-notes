@@ -1,11 +1,5 @@
 # http
 
-```go
-    http.HandleFunc("/test", func(w http.ResponseWriter, r *http.Request) {
-        io.WriteString(w, "response ok!")
-    })
-```
-
 ## GET request
 
 ```go
@@ -55,6 +49,14 @@ func main() {
     http.HandleFunc("/hello", hello)
     http.ListenAndServe(":8090", nil)
 }
+```
+
+### ResponseWriter 的寫入方法
+
+```go
+w.Write([]byte("OK"))
+fmt.Fprintf(w, "OK")
+io.WriteString(w, "OK")
 ```
 
 ## 回傳 JSON 的 server
