@@ -51,7 +51,7 @@ func main() {
 }
 ```
 
-### ResponseWriter 的寫入方法
+### ResponseWriter 的寫入的三種方法
 
 ```go
 w.Write([]byte("OK"))
