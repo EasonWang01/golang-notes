@@ -18,3 +18,5 @@ Golang 設計初衷：[https://talks.golang.org/2012/splash.article](https://tal
 
 Gopher mascot 來源：[https://www.youtube.com/watch?v=4rw\_B4yY69k](https://www.youtube.com/watch?v=4rw_B4yY69k)
 
+專案架構：[https://github.com/golang-standards/project-layout](https://github.com/golang-standards/project-layout)
+
