@@ -81,3 +81,39 @@ io.WriteString(w, "OK")
 fmt.Fprintf(w, "%d", 123)
 ```
 
+## 讀取 application/x-www-form-urlencoded
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+)
+
+func main() {
+	log.Println("Server started on: http://localhost:8050")
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		r.ParseForm()
+		name := r.FormValue("name")
+		city := r.FormValue("city")
+		fmt.Println(r.Form)
+		fmt.Println(name, city)
+	})
+	http.ListenAndServe(":8050", nil)
+}
+```
+
+> POST 必須帶三個必備 Header
+
+![](../.gitbook/assets/ying-mu-kuai-zhao-20200831-shang-wu-9.46.46.png)
+
+body
+
+![](../.gitbook/assets/ying-mu-kuai-zhao-20200831-shang-wu-9.47.32.png)
+
+回傳
+
+![](../.gitbook/assets/ying-mu-kuai-zhao-20200831-shang-wu-9.47.54.png)
+
