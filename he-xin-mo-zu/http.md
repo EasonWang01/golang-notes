@@ -117,3 +117,28 @@ body
 
 ![](../.gitbook/assets/ying-mu-kuai-zhao-20200831-shang-wu-9.47.54.png)
 
+## 解析 form/data
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+)
+
+func main() {
+	log.Println("Server started on: http://localhost:8050")
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		r.ParseMultipartForm(0)
+		// 後面的參數代表解析緩存 size
+		name := r.FormValue("name")
+		city := r.FormValue("city")
+		fmt.Println(r.Form)
+		fmt.Println(name, city)
+	})
+	http.ListenAndServe(":8050", nil)
+}
+```
+
