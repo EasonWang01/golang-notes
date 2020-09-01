@@ -127,3 +127,15 @@ fmt.Println("rune:", len([]rune(str))) // 8
 >
 > 所以用rune才能正確算出中文字長度。
 
+## byte array to string
+
+```go
+string(someByteArray[:])
+```
+
+如果有轉為 hex string
+
+```go
+hex.EncodeToString(someByteArray[:])
+```
+
