@@ -42,6 +42,7 @@
   * [crypto](he-xin-mo-zu/crypto.md)
   * [context](he-xin-mo-zu/context.md)
 * [第三方模組](di-san-fang-mo-zu/README.md)
+  * [gin](di-san-fang-mo-zu/gin.md)
   * [go-jwt](di-san-fang-mo-zu/go-jwt.md)
 * [測試](ce-shi.md)
 * [原始碼解析](yuan-shi-ma-jie-xi.md)
