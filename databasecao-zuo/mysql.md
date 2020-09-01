@@ -98,6 +98,56 @@ func main() {
 	}
 
 }
+```
 
+## 插入資料
+
+```go
+package main
+
+import (
+	"database/sql"
+	"fmt"
+	"log"
+	"net/http"
+
+	_ "github.com/go-sql-driver/mysql"
+)
+
+func dbConn() (db *sql.DB) {
+	dbDriver := "mysql"
+	dbUser := "root"
+	dbPass := "example"
+	dbName := "USERS"
+	db, err := sql.Open(dbDriver, dbUser+":"+dbPass+"@/"+dbName)
+	if err != nil {
+		panic(err.Error())
+	}
+	return db
+}
+
+func insert(w http.ResponseWriter, r *http.Request) {
+	log.Println("onRequest")
+	db := dbConn()
+	if r.Method == "POST" {
+		r.ParseForm()
+		name := r.FormValue("name")
+		city := r.FormValue("city")
+		insForm, err := db.Prepare("INSERT INTO employee(name, city) VALUES(?,?)")
+		if err != nil {
+			panic(err.Error())
+		}
+		insForm.Exec(name, city)
+		log.Println("INSERT: Name: " + name + " | City: " + city)
+	}
+	defer db.Close()
+	http.Redirect(w, r, "/", 301)
+}
+
+func main() {
+	log.Println("Server started on: http://localhost:8050")
+	http.HandleFunc("/insert", insert)
+	http.ListenAndServe(":8050", nil)
+}
 ```
 
