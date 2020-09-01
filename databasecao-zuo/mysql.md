@@ -151,6 +151,27 @@ func main() {
 }
 ```
 
+## 更新資料
+
+```go
+	app.Post("/updateUser", func(c *fiber.Ctx) {
+		user := new(User)
+		if err := c.BodyParser(user); err != nil {
+			log.Fatal(err)
+		}
+		insForm, err := db.Prepare("UPDATE user SET name=?, city=? WHERE id=?")
+		if err != nil {
+			panic(err.Error())
+		}
+		fmt.Println(user)
+		_, err = insForm.Exec(user.Name, user.City, user.ID)
+		if err != nil {
+			panic(err.Error())
+		}
+		c.JSON(fiber.Map{"status": "ok"})
+	})
+```
+
 ## 可能錯誤
 
 1.通常為 schema 與資料不同，或是給的長度不夠
