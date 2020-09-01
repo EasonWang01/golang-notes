@@ -151,3 +151,11 @@ func main() {
 }
 ```
 
+## 可能錯誤
+
+1.通常為 schema 與資料不同，或是給的長度不夠
+
+> panic: runtime error: invalid memory address or nil pointer dereference \[signal SIGSEGV: segmentation violation code=0x1 addr=0x18 pc=0x143b97e\]
+
+
+
