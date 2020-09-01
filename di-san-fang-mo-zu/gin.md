@@ -10,3 +10,5 @@
 
  然後使用 [http://localhost:3000/](http://localhost:3000/)
 
+如果安裝新模組要重新執行 gin
+
