@@ -100,6 +100,22 @@ func main() {
 }
 ```
 
+## 確認資料是否存在
+
+```go
+func UserExists(db *sql.DB, account string) bool {
+	sqlStmt := `SELECT account FROM user WHERE account = ?`
+	err := db.QueryRow(sqlStmt, account).Scan(&account)
+	if err != nil {
+		if err != sql.ErrNoRows {
+			log.Print(err)
+		}
+		return false
+	}
+	return true
+}
+```
+
 ## 插入資料
 
 ```go
