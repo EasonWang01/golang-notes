@@ -188,7 +188,9 @@ func main() {
 	})
 ```
 
-## 將 整個資料庫 產生 table SCHEMA
+
+
+## 將 整個資料庫備份 產生 table SCHEMA 與 insert statement
 
 [https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html)
 
@@ -202,15 +204,9 @@ docker exec <docker id> //usr/bin/mysqldump -u root --password=example --routine
 
 {% embed url="https://stackoverflow.com/a/899139/4622645" %}
 
-## 將整個資料庫備份為 包含 schema 和 insert 的 SQL
+> 也可使用 `mysqlpump`
 
-使用 `mysqlpump`
 
-[https://dev.mysql.com/doc/refman/8.0/en/mysqlpump.html](https://dev.mysql.com/doc/refman/8.0/en/mysqlpump.html)
-
-```bash
-docker exec cb8858d4448c //usr/bin/mysqlpump -u root --password=example --routines --triggers <資料庫名稱> test_db_backup.sql
-```
 
 ## 可能錯誤
 
