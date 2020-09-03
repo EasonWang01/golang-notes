@@ -190,6 +190,8 @@ func main() {
 
 ## 將 整個資料庫 產生 table SCHEMA
 
+[https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html)
+
 可使用 mysqldump，如果在 docker 內要使用如下指令。
 
 ```bash
