@@ -61,6 +61,34 @@ err := db.QueryRow(sqlStmt, user.Account, user.Password).Scan(&userName)
 	})
 ```
 
+或是使用 struct
+
+```go
+type Message struct {
+	FromPerson string
+	ToPerson   string
+	Content    string
+	CreateTime string
+}
+	
+	app.Get("message", func(c *fiber.Ctx) {
+		rows, err := db.Query("SELECT from_person, to_person, content, create_time FROM message WHERE from_person=?", "Eason")
+		if err != nil {
+			log.Fatalln(err)
+		}
+		for rows.Next() {
+			message := new(Message)
+			err = rows.Scan(&message.FromPerson, &message.ToPerson, &message.Content, &message.CreateTime)
+			if err != nil {
+				log.Fatalln(err)
+			}
+			// return struct
+			fmt.Println(message)
+		}
+		rows.Close()
+	})
+```
+
 或是
 
 ```go
