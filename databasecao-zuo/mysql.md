@@ -188,6 +188,16 @@ func main() {
 	})
 ```
 
+## 將 整個資料庫 產生 table SCHEMA
+
+```bash
+docker exec <docker id> //usr/bin/mysqldump -u root --password=example --routines --triggers <DB名稱> > ~/test_db_backup.sql
+```
+
+![](../.gitbook/assets/ying-mu-kuai-zhao-20200903-shang-wu-9.42.27.png)
+
+[https://stackoverflow.com/a/899139/4622645](https://stackoverflow.com/a/899139/4622645)
+
 ## 可能錯誤
 
 1.通常為 schema 與資料不同，或是給的長度不夠
