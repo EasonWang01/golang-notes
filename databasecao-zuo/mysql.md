@@ -42,6 +42,28 @@ err := db.QueryRow(sqlStmt, user.Account, user.Password).Scan(&userName)
 ## 查詢多筆
 
 ```go
+	app.Get("message", func(c *fiber.Ctx) {
+		rows, err := db.Query("SELECT from_person, to_person, create_time FROM message WHERE from_person=?", "Eason")
+		if err != nil {
+			log.Fatalln(err)
+		}
+		for rows.Next() {
+			var fromPerson string
+			var toPerson string
+			var createTime string
+			err = rows.Scan(&fromPerson, &toPerson, &createTime)
+			if err != nil {
+				log.Fatalln(err)
+			}
+			fmt.Println(fromPerson, toPerson, createTime)
+		}
+		rows.Close()
+	})
+```
+
+或是
+
+```go
 package main
 
 import (
