@@ -200,7 +200,15 @@ docker exec <docker id> //usr/bin/mysqldump -u root --password=example --routine
 
 ![](../.gitbook/assets/ying-mu-kuai-zhao-20200903-shang-wu-9.42.27.png)
 
-[https://stackoverflow.com/a/899139/4622645](https://stackoverflow.com/a/899139/4622645)
+{% embed url="https://stackoverflow.com/a/899139/4622645" %}
+
+## 將整個資料庫備份為 包含 schema 和 insert 的 SQL
+
+[https://dev.mysql.com/doc/refman/8.0/en/mysqlpump.html](https://dev.mysql.com/doc/refman/8.0/en/mysqlpump.html)
+
+```bash
+docker exec cb8858d4448c //usr/bin/mysqlpump -u root --password=example --routines --triggers <資料庫名稱> > ~/test_db_backup.sql
+```
 
 ## 可能錯誤
 
