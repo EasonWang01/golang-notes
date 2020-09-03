@@ -29,6 +29,14 @@ func main() {
 }
 ```
 
+或是
+
+```go
+var userName string
+sqlStmt := `SELECT account FROM user WHERE account = ? AND password = ?`
+err := db.QueryRow(sqlStmt, user.Account, user.Password).Scan(&userName)
+```
+
 > 宣告一個變數，之後傳變數的地址給 `rows.Scan`
 
 ## 查詢多筆
