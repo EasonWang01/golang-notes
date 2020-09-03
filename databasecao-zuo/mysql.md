@@ -190,6 +190,8 @@ func main() {
 
 ## 將 整個資料庫 產生 table SCHEMA
 
+可使用 mysqldump，如果在 docker 內要使用如下指令。
+
 ```bash
 docker exec <docker id> //usr/bin/mysqldump -u root --password=example --routines --triggers <DB名稱> > ~/test_db_backup.sql
 ```
