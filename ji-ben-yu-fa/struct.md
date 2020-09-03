@@ -129,3 +129,37 @@ func main() {
 // 13
 ```
 
+## 引入其他 package 的 struct
+
+./user/schema.go
+
+```go
+package user
+
+type Schema struct {
+	ID           int    `json:"id"`
+	Name         string `json:"name"`
+	Age          string `json:"age"`
+	Account      string `json:"account"`
+	Password     string `json:"password"`
+	RegisterTime int64  `json:"registerTime"`
+	Gender       string `json:"gender"`
+	City         string `json:"city"`
+}
+```
+
+main.go
+
+```go
+import (
+	USER "./user"
+)
+
+func main() {
+	type User USER.Schema
+	....
+}	
+```
+
+[https://stackoverflow.com/a/53474756/4622645](https://stackoverflow.com/a/53474756/4622645)
+
