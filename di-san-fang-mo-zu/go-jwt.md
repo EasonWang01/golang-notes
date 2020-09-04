@@ -5,6 +5,8 @@
 Example
 
 ```go
+import "github.com/dgrijalva/jwt-go"
+
 //以下為簽章
 token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
         "foo": "bar",
