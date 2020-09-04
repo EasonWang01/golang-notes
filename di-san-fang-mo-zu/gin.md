@@ -1,4 +1,4 @@
-# gin
+# 自動重啟 server 工具
 
 > 也有自己的 web 框架：[https://github.com/gin-gonic/gin](https://github.com/gin-gonic/gin)
 
