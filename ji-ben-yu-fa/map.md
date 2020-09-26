@@ -56,3 +56,25 @@ func main() {
 }
 ```
 
+### 巢狀 Nested Map
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var test = map[string]map[string]int{
+		"a": map[string]int{}, // 記得要逗點
+	}
+
+	test["a"]["w"] = 123
+	fmt.Println(test)
+}
+
+```
+
+[https://stackoverflow.com/a/44305711/4622645](https://stackoverflow.com/a/44305711/4622645)
+
