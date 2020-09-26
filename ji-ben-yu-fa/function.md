@@ -1,5 +1,9 @@
 # Function
 
+## Golang 不能在 function 內定義 function
+
+[https://stackoverflow.com/questions/21961615/why-doesnt-go-allow-nested-function-declarations-functions-inside-functions](https://stackoverflow.com/questions/21961615/why-doesnt-go-allow-nested-function-declarations-functions-inside-functions)
+
 ## 基本寫法
 
 ```go

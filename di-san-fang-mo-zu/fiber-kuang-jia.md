@@ -66,3 +66,26 @@ func main() {
 >
 > [https://stackoverflow.com/a/24837507/4622645](https://stackoverflow.com/a/24837507/4622645)
 
+## 取得 header
+
+使用 get
+
+```go
+app.Post("/signup", func(c *fiber.Ctx) { 
+  ...
+  fmt.Println(c.Get("authorization"))
+```
+
+## 加入 middleware
+
+類似於 express 用法，傳入 next
+
+```go
+	app.Post("/message", func(c *fiber.Ctx) {
+	 ....do something
+		c.Next()
+	}, func(c *fiber.Ctx) {
+	 ....do something after
+	}
+```
+
