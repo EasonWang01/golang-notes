@@ -66,3 +66,13 @@ func main() {
 >
 > [https://stackoverflow.com/a/24837507/4622645](https://stackoverflow.com/a/24837507/4622645)
 
+## 取得 header
+
+使用 get
+
+```go
+app.Post("/signup", func(c *fiber.Ctx) { 
+  ...
+  fmt.Println(c.Get("authorization"))
+```
+
