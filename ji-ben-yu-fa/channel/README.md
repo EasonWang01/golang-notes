@@ -40,7 +40,18 @@ func main() {
 goroutine 部分也可加上參數寫為
 
 > ```go
-> go func(c chan string) { c <- "ping" }(messages)
+> package main
+>
+> import "fmt"
+>
+> func main() {
+>
+>     messages := make(chan string)
+>     go func(c chan string) { c <- "ping" }(messages) 
+>     // 功能僅為把原本 messages 參數名改為 c
+>     msg := <-messages
+>     fmt.Println(msg)  // ping
+> }
 > ```
 
 ## Goroutine
