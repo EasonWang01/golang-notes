@@ -102,3 +102,17 @@ app.Post("/message", Auth, func(c *fiber.Ctx) {
 }
 ```
 
+## 取得 \*http.Request
+
+{% embed url="https://docs.gofiber.io/ctx\#context" %}
+
+使用 context\(\) 方法即可取得
+
+```go
+app.Post("/message", func(c *fiber.Ctx) {
+ ...
+ c.Context()
+}
+
+```
+
