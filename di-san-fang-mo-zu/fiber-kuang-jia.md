@@ -89,3 +89,16 @@ app.Post("/signup", func(c *fiber.Ctx) {
 	}
 ```
 
+或是
+
+```go
+func Auth(c *fiber.Ctx) {
+  ...
+  c.Next()
+}
+
+app.Post("/message", Auth, func(c *fiber.Ctx) {
+ ...
+}
+```
+
