@@ -24,6 +24,8 @@ type Account struct {
 
 ## 初始化
 
+如果只有一個欄位最後要加逗點
+
 ```go
 point := struct{ x, y int }{10, 20}
 或是
