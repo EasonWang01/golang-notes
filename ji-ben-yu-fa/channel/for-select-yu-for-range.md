@@ -1,6 +1,6 @@
 # for select 與 for range
 
-可以使用上面兩方法持續監聽 channel
+可以使用下面兩方法持續監聽 channel
 
 for select
 

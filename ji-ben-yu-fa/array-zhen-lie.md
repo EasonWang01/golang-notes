@@ -36,8 +36,6 @@ langs := []string{"Go", "Python", "Ruby", "PHP"}
 
 合併 slice
 
-{% tabs %}
-{% tab title="Go" %}
 ```go
 package main
 
@@ -53,8 +51,6 @@ func main() {
 }
 
 ```
-{% endtab %}
-{% endtabs %}
 
 ### 不指定型態
 
