@@ -24,8 +24,6 @@ type Account struct {
 
 ## 初始化
 
-如果只有一個欄位最後要加逗點
-
 ```go
 point := struct{ x, y int }{10, 20}
 或是
@@ -100,63 +98,6 @@ func (ac *Account) Deposit(amount float64) {
 
 account := &Account{"1234-5678", "Justin Lin", 1000}
 account.Deposit(500)
-```
-
-例如原本要把參數傳進去才能呼叫 test ：
-
-```go
-package main
-
-import "fmt"
-
-type connection struct {
-	message chan string
-}
-
-var conn = connection{
-	message: make(chan string),
-}
-
-func main() {
-	go test(conn.message)
-
-	msg := <-conn.message
-	fmt.Println(msg)
-}
-
-func test(messages chan string) {
-	messages <- "ping"
-}
-```
-
-可以改為以下：讓test 變成 conn 的方法
-
-```go
-package main
-
-import "fmt"
-
-type connection struct {
-	message chan string
-}
-
-var conn = connection{
-	message: make(chan string),
-}
-
-
-func (c *connection) test() {
-	c.message <- "ping"
-}
-
-
-func main() {
-	go conn.test()
-
-	msg := <-conn.message
-	fmt.Println(msg)
-}
-
 ```
 
 ## iterate struct 內的值

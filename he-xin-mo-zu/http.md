@@ -51,10 +51,6 @@ func main() {
 }
 ```
 
-> golang server 重複用到 port 不會提示 error 就算是使用
->
-> `log.Fatal(http.ListenAndServe(":8010", nil))`
-
 ### ResponseWriter 的寫入的三種方法
 
 ```go

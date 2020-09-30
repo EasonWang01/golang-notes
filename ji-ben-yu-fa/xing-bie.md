@@ -139,18 +139,3 @@ string(someByteArray[:])
 hex.EncodeToString(someByteArray[:])
 ```
 
-## 查看型別
-
-```go
-package main
-
-import (
-  "fmt"
-  "reflect"
-)
-
-func main() {
-  fmt.Println(reflect.TypeOf("test"))
-}
-```
-
