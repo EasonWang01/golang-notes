@@ -35,6 +35,9 @@ func main() {
 var userName string
 sqlStmt := `SELECT account FROM user WHERE account = ? AND password = ?`
 err := db.QueryRow(sqlStmt, user.Account, user.Password).Scan(&userName)
+if err != nil {
+  panic(err.Error()) // proper error handling instead of panic in your app
+}
 ```
 
 > 宣告一個變數，之後傳變數的地址給 `rows.Scan`
