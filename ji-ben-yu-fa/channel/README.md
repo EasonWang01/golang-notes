@@ -40,7 +40,18 @@ func main() {
 goroutine 部分也可加上參數寫為
 
 > ```go
-> go func(c chan string) { c <- "ping" }(messages)
+> package main
+>
+> import "fmt"
+>
+> func main() {
+>
+>     messages := make(chan string)
+>     go func(c chan string) { c <- "ping" }(messages) 
+>     // 功能僅為把原本 messages 參數名改為 c
+>     msg := <-messages
+>     fmt.Println(msg)  // ping
+> }
 > ```
 
 ## Goroutine
@@ -160,4 +171,53 @@ func main() {
 }
 
 ```
+
+## 持續接受 channel
+
+當我們這樣寫，程式接收一次channel 就會結束
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	tick := time.Tick(100 * time.Millisecond)
+    msg := <-tick
+	fmt.Println(msg)
+}
+```
+
+可以用 for 搭配 select 持續監聽
+
+```go
+
+```
+
+或是使用 for range
+
+[https://gobyexample.com/range-over-channels](https://gobyexample.com/range-over-channels)
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+
+    queue := make(chan string, 2)
+    queue <- "one"
+    queue <- "two"
+    close(queue)
+
+    for elem := range queue {
+        fmt.Println(elem)
+    }
+}
+```
+
+
 
