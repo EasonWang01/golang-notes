@@ -20,3 +20,5 @@ Gopher mascot 來源：[https://www.youtube.com/watch?v=4rw\_B4yY69k](https://ww
 
 專案架構：[https://github.com/golang-standards/project-layout](https://github.com/golang-standards/project-layout)
 
+Node.js 與 Golang [https://www.bookstack.cn/read/golang-for-nodejs-developers/learning.md](https://www.bookstack.cn/read/golang-for-nodejs-developers/learning.md)
+
