@@ -70,6 +70,14 @@ func main() {
 
 > int8 與int32也不可直接運算，需要轉換
 
+#### 有一些例外情況必須用 [Type\_assertions](https://golang.org/ref/spec#Type_assertions)
+
+> 不能用 int\(a\) 要用 a.\(int\)
+>
+> [https://stackoverflow.com/a/18041561/4622645](https://stackoverflow.com/a/18041561/4622645)
+
+[https://golang.org/ref/spec\#Type\_assertions](https://golang.org/ref/spec#Type_assertions)
+
 ### 8.型別別名\(Type alias\)
 
 ```go
@@ -137,5 +145,20 @@ string(someByteArray[:])
 
 ```go
 hex.EncodeToString(someByteArray[:])
+```
+
+## 查看型別
+
+```go
+package main
+
+import (
+  "fmt"
+  "reflect"
+)
+
+func main() {
+  fmt.Println(reflect.TypeOf("test"))
+}
 ```
 
