@@ -66,3 +66,53 @@ func main() {
 >
 > [https://stackoverflow.com/a/24837507/4622645](https://stackoverflow.com/a/24837507/4622645)
 
+## 取得 header
+
+使用 get
+
+```go
+app.Post("/signup", func(c *fiber.Ctx) { 
+  ...
+  fmt.Println(c.Get("authorization"))
+```
+
+## 加入 middleware
+
+類似於 express 用法，傳入 next
+
+```go
+	app.Post("/message", func(c *fiber.Ctx) {
+	 ....do something
+		c.Next()
+	}, func(c *fiber.Ctx) {
+	 ....do something after
+	}
+```
+
+或是
+
+```go
+func Auth(c *fiber.Ctx) {
+  ...
+  c.Next()
+}
+
+app.Post("/message", Auth, func(c *fiber.Ctx) {
+ ...
+}
+```
+
+## 取得 \*http.Request
+
+{% embed url="https://docs.gofiber.io/ctx\#context" %}
+
+使用 context\(\) 方法即可取得
+
+```go
+app.Post("/message", func(c *fiber.Ctx) {
+ ...
+ c.Context()
+}
+
+```
+
