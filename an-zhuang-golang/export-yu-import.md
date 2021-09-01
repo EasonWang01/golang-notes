@@ -40,3 +40,23 @@ func main() {
 
 之後即可。
 
+##  使用 go mod 的話 import 只要放入 go mod 名稱在前面即可
+
+```text
+go mod init test-backend
+```
+
+例如在 route 檔案可使用如下：
+
+```text
+package routes
+
+import (
+	controllers "test-backend/controllers"
+)
+
+func CatchphrasesRoute(route fiber.Router) {
+	route.Get("/", controllers.GetAllCatchphrases)
+}
+```
+
