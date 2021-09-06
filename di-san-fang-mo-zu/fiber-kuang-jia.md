@@ -113,6 +113,24 @@ app.Post("/message", func(c *fiber.Ctx) {
  ...
  c.Context()
 }
+```
 
+## 取得 path params
+
+```go
+app.Get("/:name", func(c *fiber.Ctx) error {
+    msg := fmt.Sprintf("Hello, %s 👋!", c.Params("name"))
+    return c.SendString(msg)
+})
+```
+
+## 取得 query string
+
+```go
+app.Get("/", func(c *fiber.Ctx) error {
+  c.Query("order")         // "desc"
+  c.Query("brand")         // "nike"
+  c.Query("empty", "nike") // "nike"
+})
 ```
 
