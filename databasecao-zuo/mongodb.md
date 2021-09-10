@@ -8,7 +8,29 @@
 
 [https://juejin.cn/post/6908063164726771719](https://juejin.cn/post/6908063164726771719)
 
-## 使用 push
+## 使用 FindOne
+
+```go
+func GetProfile(c *fiber.Ctx) error {
+	var result bson.M
+	userCollection := config.MI.DB.Collection("user")
+	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
+	findOneOpts := options.FindOne()
+	singleResult := userCollection.FindOne(ctx, bson.M{"blockchain_address": c.Query("address")}, findOneOpts)
+
+	if err := singleResult.Decode(&result); err == nil {
+		fmt.Printf("result: %+v\n", result)
+	}
+
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"data":    result,
+		"success": true,
+		"message": "User profile query successfully",
+	})
+}
+```
+
+## 使用 Push
 
 如果結構中有 array 可使用
 
