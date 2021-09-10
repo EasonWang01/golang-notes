@@ -48,6 +48,23 @@ func main() {
 }
 ```
 
+## 使用 push
+
+```go
+
+	opts1 := options.Update().SetUpsert(true)
+	filter1 := bson.M{"blockchain_address": Follower.Follower_blockchain_address}
+	update1 := bson.M{
+		"$push": bson.M{
+			"Following": bson.M{
+				"blockchain_address": Follower.Following_blockchain_address,
+				"create_time":        utils.MakeTimestamp(),
+			},
+		},
+	}
+	result1, err1 := userCollection.UpdateOne(ctx, filter1, update1, opts1)
+```
+
 ## 完整範例：
 
 ![](../.gitbook/assets/jie-tu-20210901-xia-wu-12.11.51.png)
@@ -315,4 +332,6 @@ DB=project-name
 PORT=3000
 APP_ENV=development
 ```
+
+ 
 
