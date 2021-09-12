@@ -25,3 +25,7 @@ func GetUserAssets(c *fiber.Ctx) error {
 }
 ```
 
+## 快速 JSON 轉為 struct 的工具
+
+[https://mholt.github.io/json-to-go/](https://mholt.github.io/json-to-go/)
+
