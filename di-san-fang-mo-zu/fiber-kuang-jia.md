@@ -134,3 +134,9 @@ app.Get("/", func(c *fiber.Ctx) error {
 })
 ```
 
+## Swagger 文件整合
+
+{% embed url="https://mholt.github.io/json-to-go/" %}
+
+[https://ithelp.ithome.com.tw/articles/10224472](https://ithelp.ithome.com.tw/articles/10224472)
+
