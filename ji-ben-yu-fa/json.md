@@ -25,3 +25,31 @@ func GetUserAssets(c *fiber.Ctx) error {
 }
 ```
 
+## Struct to JSON
+
+記得 struct 的 key 開頭要大寫，然後 Marshal 後要轉為 string 
+
+```go
+  var results struct {
+		Traders_24H string `json:"Traders_24H"`
+	}
+
+  results.Traders_24H = "test"
+	
+	var data, err1 = json.Marshal(results)
+	
+	if err1 != nil {
+		log.Fatal(err)
+	}
+
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"success": true,
+		"data":    string(data),
+		"message": "success query NFT market data",
+	})
+```
+
+## 快速 JSON 轉為 struct 的工具
+
+[https://mholt.github.io/json-to-go/](https://mholt.github.io/json-to-go/)
+
