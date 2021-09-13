@@ -43,6 +43,7 @@
   * [crypto](he-xin-mo-zu/crypto.md)
   * [context](he-xin-mo-zu/context.md)
 * [第三方模組](di-san-fang-mo-zu/README.md)
+  * [Dom Parser](di-san-fang-mo-zu/dom-parser.md)
   * [gin 框架](di-san-fang-mo-zu/gin-kuang-jia.md)
   * [Websocket](di-san-fang-mo-zu/websocket.md)
   * [Iris框架](di-san-fang-mo-zu/iriskuang-jia/README.md)
