@@ -40,3 +40,14 @@ GOPATH為之後用來放專案的路徑 未來通常會有三個目錄`src、bin
 export GOPATH=/Users/...
 ```
 
+## Linux
+
+```text
+wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+
+vim ~/.profile
+export PATH=$PATH:/usr/local/go/bin
+
+source ~/.profile
+```
+
