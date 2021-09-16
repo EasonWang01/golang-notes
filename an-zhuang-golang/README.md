@@ -1,5 +1,9 @@
 # 安裝Golang
 
+## 使用 1.11 版本後的不需要設置 GOPATH, GOROOT
+
+因為已經有 go mod，解決之前專案都必須放在 GOPATH 的問題。
+
 ## Windows
 
 到此頁面下載並安裝[https://golang.org/dl/](https://golang.org/dl/)
