@@ -159,6 +159,30 @@ func main() {
 
 ```
 
+## Func 傳值與傳址
+
+```go
+type MyStruct struct {
+    Val int
+}
+
+func myfunc() MyStruct {
+    return MyStruct{Val: 1}
+}
+
+func myfunc() *MyStruct {
+    return &MyStruct{}
+}
+
+func myfunc(s *MyStruct) {
+    s.Val = 1
+}
+```
+
+> The first returns a copy of the struct, the second a pointer to the struct value created within the function, the third expects an existing struct to be passed in and overrides the value.
+
+[https://stackoverflow.com/questions/23542989/pointers-vs-values-in-parameters-and-return-values](https://stackoverflow.com/questions/23542989/pointers-vs-values-in-parameters-and-return-values)
+
 ## iterate struct 內的值
 
 ```go
