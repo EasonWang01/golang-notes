@@ -134,6 +134,19 @@ app.Get("/", func(c *fiber.Ctx) error {
 })
 ```
 
+## Form-data 檔案上傳
+
+![](../.gitbook/assets/jie-tu-20210917-xia-wu-3.02.14.png)
+
+```go
+func UploadAvatar(c *fiber.Ctx) error {
+	file, err := c.FormFile("document")
+
+	// Save file to root directory:
+	return c.SaveFile(file, fmt.Sprintf("./%s", file.Filename))
+}
+```
+
 ## Swagger 文件整合
 
 {% embed url="https://mholt.github.io/json-to-go/" %}

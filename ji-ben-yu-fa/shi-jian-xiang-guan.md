@@ -82,3 +82,11 @@ func main() {
 }
 ```
 
+## 產生 unix timestamp 
+
+```go
+func makeTimestamp() int64 {
+    return time.Now().Round(time.Millisecond).UnixNano() / (int64(time.Millisecond)/int64(time.Nanosecond))
+}
+```
+
