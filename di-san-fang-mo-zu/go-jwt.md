@@ -40,3 +40,43 @@ if claims, ok := token1.Claims.(jwt.MapClaims); ok && token1.Valid {
 }
 ```
 
+### 單獨抽出 Verify token func
+
+```go
+func VerifyToken(tokenString string) (bool, interface{}) {
+	parsedToken, err := jwt.Parse(tokenString, func(_token *jwt.Token) (interface{}, error) {
+		if _, ok := _token.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, fmt.Errorf("Unexpected signing method: %v", _token.Header["alg"])
+		}
+		return hmacSampleSecret, nil
+	})
+	if parsedToken == nil {
+		return false, "not valid"
+	}
+	if claims, ok := parsedToken.Claims.(jwt.MapClaims); ok && parsedToken.Valid {
+		return parsedToken.Valid, claims["address"]
+	} else {
+		fmt.Println(err)
+		return false, "not valid"
+	}
+}
+```
+
+使用：放入某個需要驗證的 route 裡面
+
+```go
+	if c.Get("Authorization") == "" {
+		return c.Status(fiber.StatusOK).JSON(fiber.Map{
+			"success": false,
+			"message": "Please provide Authorization header",
+		})
+	}
+	isValid, userAddress := VerifyToken(c.Get("Authorization"))
+	if !isValid || userAddress != Profile.Blockchain_address {
+		return c.Status(403).JSON(fiber.Map{
+			"success": false,
+			"message": "User not authorized",
+		})
+	}
+```
+
