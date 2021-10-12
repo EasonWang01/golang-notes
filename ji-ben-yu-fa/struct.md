@@ -15,7 +15,7 @@ type Account struct {
 
 原因為 屬性第一個字必須大寫，struct名字第一個字也要大寫。
 
-```text
+```
 type Account struct {
     Id      int
     Name    int
@@ -244,5 +244,5 @@ func main() {
 }	
 ```
 
-[https://stackoverflow.com/a/53474756/4622645](https://stackoverflow.com/a/53474756/4622645)
+{% embed url="https://stackoverflow.com/a/53474756/4622645" %}
 

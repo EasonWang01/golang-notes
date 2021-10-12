@@ -28,7 +28,7 @@
   * [pointer](ji-ben-yu-fa/pointer.md)
   * [regExp](ji-ben-yu-fa/regexp.md)
   * [fmt](ji-ben-yu-fa/fmt.md)
-  * [make, new](ji-ben-yu-fa/make-new.md)
+  * [Make vs New](ji-ben-yu-fa/make-new.md)
   * [struct](ji-ben-yu-fa/struct.md)
   * [Array, Slice 陣列](ji-ben-yu-fa/array-zhen-lie.md)
   * [map](ji-ben-yu-fa/map.md)
@@ -56,4 +56,3 @@
 * [原始碼解析](yuan-shi-ma-jie-xi.md)
 * [常見問題](chang-jian-wen-ti/README.md)
   * [Data races](chang-jian-wen-ti/data-races.md)
-
