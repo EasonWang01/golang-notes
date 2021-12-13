@@ -22,6 +22,7 @@
   * [defer](ji-ben-yu-fa/defer.md)
   * [panic, recover](ji-ben-yu-fa/panic-recover.md)
   * [Channel 與Goroutine](ji-ben-yu-fa/channel/README.md)
+    * [讀寫鎖](ji-ben-yu-fa/channel/du-xie-suo.md)
     * [for select 與 for range](ji-ben-yu-fa/channel/for-select-yu-for-range.md)
     * [UnBuffered channel 與 Buffered channel](ji-ben-yu-fa/channel/buffered-channel-yu-unbuffered-channel.md)
   * [Function](ji-ben-yu-fa/function.md)
