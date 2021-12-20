@@ -6,7 +6,7 @@ description: 以前專案都要放在 GOPATH 下，後來出了 govendor，更�
 
 如果是在同一個資料夾引入的話可以單純把他一起編譯進去即可
 
-```text
+```
 go run ./hello.go ./utils.go
 ```
 
@@ -14,7 +14,7 @@ go run ./hello.go ./utils.go
 
 1.以前必須要寫在GOPATH下面，但現在有go mod，可以直接用`go mod init <package name>`
 
-2. package name要跟資料夾名稱相同，裡面檔案名稱沒差
+2\. package name要跟資料夾名稱相同，裡面檔案名稱沒差
 
 3.要被引用的func 第一個字母都要大寫
 
@@ -43,11 +43,11 @@ func PrintStart(count int, endNum int) {
 
 記得要在main 的 go.mod新增`replace testp => ./testp` 否則會出現 error
 
-```text
+```
 build command-line-arguments: cannot load testp: malformed module path "testp": missing dot in first path element
 ```
 
-6. main.go
+6\. main.go
 
 ```go
 package main
@@ -70,5 +70,10 @@ func main() {
 
 {% embed url="https://www.mofish.work/thread/13586" %}
 
-[https://medium.com/rungo/anatomy-of-modules-in-go-c8274d215c16](https://medium.com/rungo/anatomy-of-modules-in-go-c8274d215c16)
+{% embed url="https://medium.com/rungo/anatomy-of-modules-in-go-c8274d215c16" %}
 
+## 注意事項：
+
+1.記得 go mod init 時 main.go 放在專案資料夾根目錄
+
+2\. init 名稱跟資料夾名稱相同

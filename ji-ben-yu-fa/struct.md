@@ -83,7 +83,9 @@ func main() {
 }
 ```
 
-## 把func 加入到 struct內
+## 把func 加入到 struct內 (Pointer receivers)
+
+[https://go.dev/tour/methods/4](https://go.dev/tour/methods/4)
 
 只要在func 名稱的前面加上該struct 當參數即可
 
