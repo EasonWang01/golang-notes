@@ -146,7 +146,7 @@ fmt.Println(c)
 
 {% embed url="https://www.evanlin.com/go-channels-handle/" %}
 
-## 用 func 接收多個 channel 
+## 用 func 接收多個 channel&#x20;
 
 ```go
 package main
@@ -194,7 +194,14 @@ func main() {
 可以用 for 搭配 select 持續監聽
 
 ```go
-
+    for {
+        select {
+        case msg1 := <-c1:
+            fmt.Println("received", msg1)
+        case msg2 := <-c2:
+            fmt.Println("received", msg2)
+        }
+    }
 ```
 
 或是使用 for range
@@ -219,5 +226,6 @@ func main() {
 }
 ```
 
+### 推薦閱讀：
 
-
+[https://peterhpchen.github.io/2020/03/08/goroutine-and-channel.html](https://peterhpchen.github.io/2020/03/08/goroutine-and-channel.html)
