@@ -76,6 +76,29 @@ messages := make(chan string)
 
 > make 第二個參數可以放channel大小
 
+使用 `var test chan int` 這樣宣告的 channel 因為初始為 nil 無法使用
+
+### 等待 Goroutine 執行完才結束程式的三種方法
+
+1. time.Sleep
+2. sync.WaitGroup
+3. 使用 channel&#x20;
+
+以下利用 c channel 確保 `go test1` 執行後才會結束程式
+
+```go
+func test1(c chan int) {
+	fmt.Println("test")
+	c <- 1
+}
+
+func main() {
+	c := make(chan int)
+	go test1(c)
+	<-c
+}
+```
+
 ## Channel select
 
 可以用select 來做channel 的流程控制，select只有 channel可以用，類似於switch
