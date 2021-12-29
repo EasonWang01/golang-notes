@@ -64,6 +64,27 @@ go func() {....}()
 
 如果有多個Goroutine 做相同的事，放在越後面的會先執行完畢
 
+#### Goroutine 匿名 function
+
+類似：go func() {} ()
+
+```go
+func main() {
+  done := make(chan bool, 1)
+  go func(c chan bool) {
+    time.Sleep(50 * time.Millisecond)
+    c <- true
+  }(done)
+  <-done
+}
+```
+
+有關於是否要傳參數進去匿名函式的部分可參考：
+
+> 差別在於是否在 go func 內可存取到正確的外部變數
+
+[https://stackoverflow.com/a/30183893/4622645](https://stackoverflow.com/a/30183893/4622645)
+
 ## Channel
 
 使用 make 創建 channel

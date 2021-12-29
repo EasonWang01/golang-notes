@@ -12,6 +12,7 @@
   * [使用 ORM](databasecao-zuo/shi-yong-orm.md)
   * [MongoDB](databasecao-zuo/mongodb.md)
 * [基本語法](ji-ben-yu-fa/README.md)
+  * [Variable](ji-ben-yu-fa/variable.md)
   * [BSON](ji-ben-yu-fa/bson.md)
   * [JSON](ji-ben-yu-fa/json.md)
   * [時間相關](ji-ben-yu-fa/shi-jian-xiang-guan.md)
