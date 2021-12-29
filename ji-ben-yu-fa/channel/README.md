@@ -4,6 +4,8 @@ channel 與 goroutine 是互相搭配的， main function 本身就是一個 gor
 
 當 channel 有資料傳入或需要從某個 channel 變數讀出資料時，那個 channel 作用域上面的 func (該 goroutine func) 會被 block ，然後把執行環境交給另一個 goroutine，直到 channel 有進有出後才會回到該 goroutine 作用環境。
 
+這邊有一個重點是 buffered channel (初始化時有給第二個參數)，寫入但沒讀出且沒超過 channel size時也不會阻塞，但讀出時如果 channel 是空的就會阻塞。
+
 ### Channel 用法
 
 ```go
