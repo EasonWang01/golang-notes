@@ -83,6 +83,27 @@ func main() {
 }
 ```
 
+## Struct inside Struct
+
+```go
+type Fruit struct {
+    Name string
+}
+
+type Apple struct {
+	Fruit
+}
+
+
+newFruit := Apple{
+    Fruit{
+	Name: "apple",
+    },
+}
+```
+
+推薦: [https://ithelp.ithome.com.tw/articles/10227592](https://ithelp.ithome.com.tw/articles/10227592)
+
 ## 把func 加入到 struct內 (Pointer receivers)
 
 [https://go.dev/tour/methods/4](https://go.dev/tour/methods/4)
