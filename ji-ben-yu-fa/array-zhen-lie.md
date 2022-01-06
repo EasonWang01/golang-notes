@@ -4,7 +4,9 @@ description: 有宣告固定長度為 Array，沒宣告固定長度則為 Slice
 
 # Array, Slice 陣列
 
-## 宣告方法
+## Array 宣告方法
+
+當 \[] 內有指定長度或使用 ... 則會是 array
 
 ```go
 arr2 := [5]int{1, 2, 3}
