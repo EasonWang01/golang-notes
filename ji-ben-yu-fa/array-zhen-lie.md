@@ -66,5 +66,15 @@ func main() {
 
 ### Assign any slice to an `[]interface{}`
 
-[https://github.com/golang/go/wiki/InterfaceSlice](https://github.com/golang/go/wiki/InterfaceSlice)
+{% embed url="https://github.com/golang/go/wiki/InterfaceSlice" %}
 
+## slice 中取值
+
+```go
+a[2:]  // same as a[2 : len(a)]
+a[:3]  // same as a[0 : 3]
+a[:]   // same as a[0 : len(a)]
+If a is a pointer to an array, a[low : high] is shorthand for (*a)[low : high].
+```
+
+[https://go.dev/ref/spec#Slice\_expressions](https://go.dev/ref/spec#Slice\_expressions)
