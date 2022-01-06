@@ -79,4 +79,14 @@ a[:]   // same as a[0 : len(a)]
 If a is a pointer to an array, a[low : high] is shorthand for (*a)[low : high].
 ```
 
-[https://go.dev/ref/spec#Slice\_expressions](https://go.dev/ref/spec#Slice\_expressions)
+{% embed url="https://go.dev/ref/spec#Slice_expressions" %}
+
+## 有關 slice 或 array 當成參數時
+
+slice 如果當參數傳遞不傳 pointer 的話仍會改變原先的變數，但 array 不會改變到原先的變數。
+
+更詳細的說明可參考：
+
+{% embed url="https://kitecloud-backend.coderbridge.io/2020/08/15/golang-slice-%E4%BD%9C%E7%82%BA%E5%8F%83%E6%95%B8%E5%82%B3%E9%81%9E%E6%99%82%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85" %}
+
+[https://stackoverflow.com/questions/39993688/are-slices-passed-by-value](https://stackoverflow.com/questions/39993688/are-slices-passed-by-value)
