@@ -20,7 +20,9 @@ func test(i interface{}) {
 
 ## Function Interface
 
-在 Interface 裡面宣告 func，然後於外層實作，之後可用 interface 呼叫 func 
+在 Interface 裡面只能宣告沒實作的 func，之後傳入 interface 當 func 的參數 type。
+
+用法為：有多個不同的 struct 需要傳入當某個 func 的參數，但每個 struct 參數的屬性不同，但每個 struct 卻有實作相同的 func 名稱時可以使用。
 
 ```go
 package main
@@ -76,4 +78,3 @@ func main(){
     measure(c)
 }
 ```
-
