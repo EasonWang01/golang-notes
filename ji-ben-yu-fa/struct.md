@@ -103,11 +103,34 @@ func main() {
 
 推薦: [https://ithelp.ithome.com.tw/articles/10227592](https://ithelp.ithome.com.tw/articles/10227592)
 
-## 把func 加入到 struct內 (Pointer receivers)
+## 把func 加入到 struct內
+
+有兩種方法：
+
+#### 第一種：
+
+直接放入 struct
+
+```go
+type ss struct {
+	ccc      int
+	getApple func()
+}
+
+func main() {
+	v := ss{ccc: 1, getApple: func() {
+		fmt.Println(22)
+	}}
+	fmt.Println(v)
+}
+
+```
+
+#### 第二種：
+
+之後寫 func ，然後將 struct 放在 func 名稱前
 
 [https://go.dev/tour/methods/4](https://go.dev/tour/methods/4)
-
-只要在func 名稱的前面加上該struct 當參數即可
 
 ```go
 type Account struct {
