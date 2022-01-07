@@ -86,19 +86,18 @@ func main() {
 ## Struct inside Struct
 
 ```go
-type Fruit struct {
-    Name string
+type testS struct {
+	cc int
 }
 
-type Apple struct {
-	Fruit
+type ss struct {
+	testS
+	ccc int
 }
 
-
-newFruit := Apple{
-    Fruit{
-	Name: "apple",
-    },
+func main() {
+	v := ss{testS: testS{cc: 22}, ccc: 1}
+	fmt.Println(v)
 }
 ```
 
