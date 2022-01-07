@@ -201,8 +201,13 @@ func main() {
 	msg := <-conn.message
 	fmt.Println(msg)
 }
-
 ```
+
+#### Value receiver, Pointer receiver
+
+這邊要注意 connection 與 \*connection 傳入時有分
+
+[https://matthung0807.blogspot.com/2021/06/go-value-receiver-pointer-receiver-difference.html](https://matthung0807.blogspot.com/2021/06/go-value-receiver-pointer-receiver-difference.html)
 
 ## Func 傳值與傳址
 
