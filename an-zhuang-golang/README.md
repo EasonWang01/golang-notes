@@ -14,13 +14,13 @@
 
 1.接著我們要添加一個變數`GOROOT`
 
-```text
+```
 setx goroot C:\go
 ```
 
 2.再來設定`GOPATH`
 
-```text
+```
 setx gopath C:\Go\gopathfold
 ```
 
@@ -40,13 +40,17 @@ GOPATH為之後用來放專案的路徑 未來通常會有三個目錄`src、bin
 
 2.之後一樣新增`GOPATH`
 
-```text
+```
 export GOPATH=/Users/...
 ```
 
+更新 Go 版本：
+
+重新下載 pkg 安裝即可，會自動覆蓋。
+
 ## Linux
 
-```text
+```
 wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
 
 vim ~/.profile
@@ -54,4 +58,3 @@ export PATH=$PATH:/usr/local/go/bin
 
 source ~/.profile
 ```
-
