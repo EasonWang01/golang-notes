@@ -8,10 +8,15 @@
 
 ## Web server Live reload
 
+使用 Air tool:
+
+{% embed url="https://github.com/cosmtrek/air" %}
+
+使用 Gin:
+
 [https://github.com/codegangsta/gin](https://github.com/codegangsta/gin)
 
-```text
+```
 建一個資料夾  裡面放test.go檔案
 然後輸入gin run test.go
 ```
-
